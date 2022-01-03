@@ -15,11 +15,13 @@ task:
       populate_script:
         - pwd
         - ls -lah
+        - mkdir -p $PWD/test_cache
         - touch $PWD/test_cache/testfile1
     test_script:
       - env
       - mount
       - df -h
+      - mkdir -p $PWD/test1_cache
       - touch $PWD/test1_cache/testfile2
       - pwd
       - ls -lah
