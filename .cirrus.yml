@@ -9,16 +9,18 @@ task:
       cpu: 2
       memory: 4G
     ccache_cache:
-      folder: test_cache
+      folders: 
+        - test_cache
+        - test1_cache
       populate_script:
         - pwd
         - ls -lah
-        - touch testfile1
+        - touch $PWD/test_cache/testfile1
     test_script:
       - env
       - mount
       - df -h
-      - touch testfile2
+      - touch $PWD/test1_cache/testfile2
       - pwd
       - ls -lah
 
