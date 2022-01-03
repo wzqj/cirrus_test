@@ -29,6 +29,7 @@ task:
       - pwd
       - ls -lah
       - ls -lah /tmp/ccache
+      - echo $CCACHE_EXEC
 
 task:
     name: test
