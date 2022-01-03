@@ -23,7 +23,7 @@ task:
       - df -h
       - mkdir -p $PWD/test1_cache
       - touch $PWD/test1_cache/testfile2
-      - touch $PWD/test1_cache/testfile5
+      - touch $PWD/test1_cache/testfile6
       - pwd
       - ls -lah
       - ls -lah test_cache
@@ -40,6 +40,11 @@ task:
       folders: 
         - test_cache
         - test1_cache
+      populate_script:
+        - pwd
+        - ls -lah
+        - mkdir -p $PWD/test_cache
+        - touch $PWD/test_cache/testfile1
     test_script:
       - env
       - mount
