@@ -12,6 +12,8 @@ task:
       folders: 
         - test_cache
         - test1_cache
+      fingerprint_key: dkdldhdkdl999
+      reupload_on_changes: true
       populate_script:
         - pwd
         - ls -lah
@@ -40,11 +42,8 @@ task:
       folders: 
         - test_cache
         - test1_cache
-      populate_script:
-        - pwd
-        - ls -lah
-        - mkdir -p $PWD/test_cache
-        - touch $PWD/test_cache/testfile1
+      fingerprint_key: dkdldhdkdl999
+      reupload_on_changes: true
     test_script:
       - env
       - mount
