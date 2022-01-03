@@ -29,7 +29,7 @@ task:
       - ls -lah test1_cache
 
 task:
-    name: task2
+    name: task1
     timeout_in: 2m
     container:
       image: ubuntu:20.04 
