@@ -9,10 +9,10 @@ task:
       cpu: 2
       memory: 4G
     ccache_cache:
-      folders: 
-        - test_cache
-        - test1_cache
+      folder: test_cache
       populate_script:
+        - pwd
+        - ls -lah
         - touch testfile1
     test_script:
       - env
