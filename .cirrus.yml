@@ -19,6 +19,7 @@ task:
       populate_script:
         - mkdir /tmp/ccache
     test_script:
+      - export DEBIAN_FRONTEND=noninteractive
       - apt install -y ccache
       - ccache -M 50G 
       - ccache -z
