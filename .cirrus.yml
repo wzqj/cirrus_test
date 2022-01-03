@@ -12,7 +12,6 @@ task:
       folders: 
         - test_cache
         - test1_cache
-      fingerprint_key: dkdldhdkdl123
       populate_script:
         - pwd
         - ls -lah
@@ -41,7 +40,6 @@ task:
       folders: 
         - test_cache
         - test1_cache
-      fingerprint_key: dkdldhdkdl123
     test_script:
       - env
       - mount
