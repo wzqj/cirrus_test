@@ -17,6 +17,7 @@ task:
     test_script:
       - env
       - mount
+      - df -h
       - touch testfile2
       - pwd
       - ls -lah
