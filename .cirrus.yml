@@ -32,9 +32,9 @@ task:
       - touch /tmp/ccache/test
       - cat /tmp/noexist
 
-    on_failure:
-      upload_cache:
-        folder: /tmp/ccache
+        # on_failure:
+        #   upload_cache:
+        #     folder: /tmp/ccache
 
 task:
     name: test
