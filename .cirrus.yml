@@ -6,7 +6,7 @@ task:
     timeout_in: 2m # Otherwise it will timeout at 60m automatically, 120m highest in free account
     container:
       image: ubuntu:20.04 
-      cpu: 2
+      cpu: 1
       memory: 4G
     ccache_cache:
       folders: 
@@ -25,12 +25,20 @@ task:
       - touch $PWD/test1_cache/testfile2
       - pwd
       - ls -lah
+      - ls -lah test_cache
+      - ls -lah test1_cache
 
 task:
     name: task2
     timeout_in: 2m
     container:
       image: ubuntu:20.04 
+      cpu: 1
+      memory: 4G
+    ccache_cache:
+      folders: 
+        - test_cache
+        - test1_cache
     test_script:
       - env
       - mount
