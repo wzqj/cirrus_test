@@ -1,12 +1,13 @@
 env: # Environt variable to pass to all tasks
     CIRRUS_CLONE_DEPTH: 1 # No need to clone with whole history
 
-test_task:
+task:
+    name: test
     timeout_in: 2m # Otherwise it will timeout at 60m automatically, 120m highest in free account
     container:
       image: ubuntu:20.04 
-      cpu: 1
-      memory: 4G
+      cpu: 0.5
+      memory: 1G
     ccache_cache:
       folders: 
         - test_cache
@@ -29,12 +30,13 @@ test_task:
       - ls -lah test_cache
       - ls -lah test1_cache
 
-test_task:
+task:
+    name: test
     timeout_in: 2m
     container:
       image: ubuntu:20.04 
-      cpu: 1
-      memory: 4G
+      cpu: 0.5
+      memory: 1G
     ccache_cache:
       folders: 
         - test_cache
