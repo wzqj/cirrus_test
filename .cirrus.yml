@@ -14,7 +14,7 @@ task:
       cpu: 2  #8 cpu for dummy build, 10 or more cpu for final build, sometimes more than 8 cpu will cause a timelock, so you wont be able to run ci again within few hours, in build script use -j8 or -j10 depending what you used here, otherwise low memory issue will happen, 16cpu highest
       memory: 4G # So that we can have ram when needed, 24G highest
     ccache_cache:
-      - folders: test_cache, test1_cache
+      folders: test_cache, test1_cache
       populate_script:
         - touch testfile1
     test_script: # To download ccache in background
