@@ -17,14 +17,13 @@ task:
         - ls -lah
         - mkdir -p $PWD/test_cache
         - touch $PWD/test_cache/testfile1
-      reupload_on_changes: true
     test_script:
       - env
       - mount
       - df -h
       - mkdir -p $PWD/test1_cache
       - touch $PWD/test1_cache/testfile2
-      - touch $PWD/test1_cache/testfile3
+      - touch $PWD/test1_cache/testfile5
       - pwd
       - ls -lah
       - ls -lah test_cache
@@ -41,7 +40,6 @@ task:
       folders: 
         - test_cache
         - test1_cache
-      reupload_on_changes: true
     test_script:
       - env
       - mount
