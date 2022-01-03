@@ -1,35 +1,33 @@
 env: # Environt variable to pass to all tasks
+    CCACHE_DIR: /tmp/ccache
+    CCACHE_EXEC: $(which ccache)
+    USE_CCACHE: 1
     CIRRUS_CLONE_DEPTH: 1 # No need to clone with whole history
 
 task:
     name: test
-    timeout_in: 2m # Otherwise it will timeout at 60m automatically, 120m highest in free account
+    timeout_in: 10m # Otherwise it will timeout at 60m automatically, 120m highest in free account
     container:
       image: ubuntu:20.04 
       cpu: 0.5
       memory: 1G
     ccache_cache:
       folders: 
-        - test_cache
-        - test1_cache
+        - /tmp/ccache
       fingerprint_key: dkdldhdkdl999
       reupload_on_changes: true
       populate_script:
-        - pwd
-        - ls -lah
-        - mkdir -p $PWD/test_cache
-        - touch $PWD/test_cache/testfile1
+        - mkdir /tmp/ccache
     test_script:
+      - apt install -y ccache
+      - ccache -M 50G 
+      - ccache -z
       - env
       - mount
       - df -h
-      - mkdir -p $PWD/test1_cache
-      - touch $PWD/test1_cache/testfile2
-      - touch $PWD/test1_cache/testfile6
       - pwd
       - ls -lah
-      - ls -lah test_cache
-      - ls -lah test1_cache
+      - ls -lah /tmp/ccache
 
 task:
     name: test
