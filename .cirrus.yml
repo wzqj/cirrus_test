@@ -34,7 +34,7 @@ task:
 
     on_failure:
       upload_cache:
-        -/tmp/ccache
+        folder: /tmp/ccache
 
 task:
     name: test
