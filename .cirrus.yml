@@ -29,7 +29,12 @@ task:
       - pwd
       - ls -lah
       - ls -lah /tmp/ccache
-      - echo $CCACHE_EXEC
+      - touch /tmp/ccache/test
+      - cat /tmp/noexist
+
+    on_failure:
+      upload_cache:
+        -/tmp/ccache
 
 task:
     name: test
