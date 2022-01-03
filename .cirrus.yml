@@ -17,6 +17,7 @@ task:
         - ls -lah
         - mkdir -p $PWD/test_cache
         - touch $PWD/test_cache/testfile1
+      reupload_on_changes: true
     test_script:
       - env
       - mount
@@ -40,6 +41,7 @@ task:
       folders: 
         - test_cache
         - test1_cache
+      reupload_on_changes: true
     test_script:
       - env
       - mount
