@@ -31,10 +31,9 @@ task:
       - ls -lah /tmp/ccache
       - touch /tmp/ccache/test
       - cat /tmp/noexist
-
-        # on_failure:
-        #   upload_cache:
-        #     folder: /tmp/ccache
+    on_failure:
+      upload_caches:
+        - ccache
 
 task:
     name: test
