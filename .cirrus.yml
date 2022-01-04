@@ -19,6 +19,7 @@ task:
       reupload_on_changes: true
       populate_script:
         - mkdir /tmp/ccache
+        - mkdir /tmp/ramdisk
     test_script:
       - apt update
       - apt install -y ccache
