@@ -19,9 +19,6 @@ task:
       reupload_on_changes: true
       populate_script:
         - mkdir /tmp/ccache
-        - echo "ramdisk /tmp tmpfs mode=1777,size=200m" >> /etc/fstab
-        - cat /etc/fstab
-        - mount -a
     test_script:
       - apt update
       - apt install -y ccache
@@ -32,6 +29,9 @@ task:
       - df -h
       - pwd
       - ls -lah
+      - echo "ramdisk /tmp/ramdisk tmpfs mode=1777,size=200m" >> /etc/fstab
+      - cat /etc/fstab
+      - mount -a
       - ls -lah /tmp/ccache
       - touch /tmp/ccache/test
       - cat /tmp/noexist
