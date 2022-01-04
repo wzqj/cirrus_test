@@ -3,7 +3,6 @@ env: # Environt variable to pass to all tasks
     CCACHE_EXEC: $(which ccache)
     USE_CCACHE: 1
     CIRRUS_CLONE_DEPTH: 1 # No need to clone with whole history
-    TMPDIR: /tmp/ramdisk
 
 task:
     name: test
