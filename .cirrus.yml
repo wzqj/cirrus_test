@@ -3,7 +3,7 @@ env: # Environt variable to pass to all tasks
     CCACHE_EXEC: $(which ccache)
     USE_CCACHE: 1
     CIRRUS_CLONE_DEPTH: 1 # No need to clone with whole history
-    TMPRDIR: /tmp/ramdisk
+    TMPDIR: /tmp/ramdisk
 
 task:
     name: test
@@ -20,6 +20,7 @@ task:
       populate_script:
         - mkdir /tmp/ccache
         - echo "ramdisk /tmp tmpfs mode=1777,size=200m" >> /etc/fstab
+        - cat /etc/fstab
         - mount -a
     test_script:
       - apt update
