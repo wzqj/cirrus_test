@@ -3,6 +3,7 @@ env: # Environt variable to pass to all tasks
     CCACHE_EXEC: $(which ccache)
     USE_CCACHE: 1
     CIRRUS_CLONE_DEPTH: 1 # No need to clone with whole history
+    TMPRDIR: /tmp/ramdisk
 
 task:
     name: test
@@ -18,6 +19,8 @@ task:
       reupload_on_changes: true
       populate_script:
         - mkdir /tmp/ccache
+        - echo "ramdisk /tmp tmpfs mode=1777,size=200m" >> /etc/fstab
+        - mount -a
     test_script:
       - apt update
       - apt install -y ccache
