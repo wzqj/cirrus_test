@@ -14,12 +14,11 @@ task:
       memory: 1G
     ccache_cache:
       folders: 
-        - /tmp/ccache
+        - ccache
       fingerprint_key: dkdldhdkdl999
       reupload_on_changes: true
       populate_script:
         - mkdir /tmp/ccache
-        - mkdir /tmp/ramdisk
     test_script:
       - apt update
       - apt install -y ccache
@@ -30,6 +29,7 @@ task:
       - df -h
       - pwd
       - ls -lah
+      - mkdir -p /tmp/ramdisk
       - echo "ramdisk /tmp/ramdisk tmpfs mode=1777,size=200m" >> /etc/fstab
       - cat /etc/fstab
       - mount -a
