@@ -17,8 +17,7 @@ task:
       fingerprint_key: dkdldhdkdl999
       reupload_on_changes: true
       populate_script:
-        - mkdir /tmp/ccache
-        - mkdir -p /tmp/ramdisk
+        #- mkdir /tmp/ccache
     test_script:
       - apt update
       - apt install -y ccache
@@ -29,6 +28,7 @@ task:
       - df -h
       - pwd
       - ls -lah
+      - mkdir -p /tmp/ramdisk
       - ls -lah /tmp
       - ls -lah /tmp/ccache
       - touch /tmp/ccache/test
