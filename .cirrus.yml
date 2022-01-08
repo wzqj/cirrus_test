@@ -32,7 +32,6 @@ task:
       - ls -lah /tmp
       - ls -lah /tmp/ccache
       - touch /tmp/ccache/test
-      - cat /tmp/noexist
       - touch test
       - if [ -f test ]
       - then 
