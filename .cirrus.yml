@@ -33,6 +33,11 @@ task:
       - ls -lah /tmp/ccache
       - touch /tmp/ccache/test
       - cat /tmp/noexist
+      - touch test
+      - if [ -f test ]
+      - then 
+      - echo yes
+      - fi
     on_failure:
       upload_caches:
         - ccache
