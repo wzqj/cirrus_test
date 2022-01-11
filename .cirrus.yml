@@ -18,6 +18,11 @@ task:
       reupload_on_changes: true
       populate_script:
         #- mkdir /tmp/ccache
+    bg_background_script:
+      - sleep 5
+      - touch test.txt
+      - echo asdjfklsjfksjfl | tee test.txt
+      - cat test.txt
     test_script:
       - apt update
       - apt install -y ccache
