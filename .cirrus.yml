@@ -37,7 +37,7 @@ task:
       - then 
       - echo yes
       - fi
-      - cat /etc/swap
+      - cat /etc/fstab
       - swapon --all
     on_failure:
       upload_caches:
