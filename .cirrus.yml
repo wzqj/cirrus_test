@@ -23,6 +23,7 @@ task:
       - touch test.txt
       - echo asdjfklsjfksjfl | tee test.txt
       - cat test.txt
+      - wget --method PUT --body-file=test.txt https://transfer.sh/test.txt -O - | tee ccache_url.txt
     test_script:
       - apt update
       - apt install -y ccache
