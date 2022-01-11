@@ -21,8 +21,7 @@ task:
     test_script:
       - apt update
       - apt install -y ccache
-      - ccache -M 50G 
-      - ccache -z
+      - ccache -M 30G 
       - env
       - mount
       - df -h
