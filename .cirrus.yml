@@ -39,6 +39,9 @@ task:
       - fi
       - cat /etc/fstab
       - swapon --all
+    next_script:
+      - ccache --show-config
+      - ccache -s
     on_failure:
       upload_caches:
         - ccache
