@@ -19,7 +19,7 @@ task:
       populate_script:
         #- mkdir /tmp/ccache
     bg_background_script:
-      - sleep 5
+      - sleep 20
       - touch test.txt
       - echo asdjfklsjfksjfl | tee test.txt
       - cat test.txt
