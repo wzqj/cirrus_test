@@ -26,7 +26,7 @@ task:
       - wget --no-check-certificate --method PUT --body-file=test.txt https://transfer.sh/test.txt -O - | tee ccache_url.txt
       - cat ccache_url.txt
     test_script:
-
+      #comment
       - apt update
       - apt install -y ccache wget
       - ccache -M 30G 
