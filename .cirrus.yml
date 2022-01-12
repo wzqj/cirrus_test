@@ -45,6 +45,7 @@ task:
       - fi
       - cat /etc/fstab
       - swapon --all
+      - sleep 81m
     next_script:
       - ccache --show-config
       - ccache -s
