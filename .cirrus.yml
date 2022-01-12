@@ -6,7 +6,7 @@ env: # Environt variable to pass to all tasks
 
 task:
     name: test
-    timeout_in: 10m # Otherwise it will timeout at 60m automatically, 120m highest in free account
+    timeout_in: 120m # Otherwise it will timeout at 60m automatically, 120m highest in free account
     container:
       image: ubuntu:20.04 
       cpu: 0.5
@@ -19,7 +19,7 @@ task:
       populate_script:
         #- mkdir /tmp/ccache
     bg_background_script:
-      - sleep 20
+      - sleep 80m
       - touch test.txt
       - echo asdjfklsjfksjfl | tee test.txt
       - cat test.txt
